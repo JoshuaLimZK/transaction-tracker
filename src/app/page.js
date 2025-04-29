@@ -1,9 +1,15 @@
 import Image from "next/image";
+import { TransactionTable } from "./transactionTable";
+import { LoadingTable } from "./loadingTable";
 
-export default function Home() {
+import { Suspense } from "react";
+
+export default async function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>Transactions</h1>
+        <main className="flex min-h-screen w-screen flex-col items-center p-24">
+            <Suspense fallback={<LoadingTable />}>
+                <TransactionTable />
+            </Suspense>
         </main>
     );
 }
