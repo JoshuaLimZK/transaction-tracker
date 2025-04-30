@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/tooltip";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import React from "react";
 
 export function FetchNewButton() {
     const router = useRouter();

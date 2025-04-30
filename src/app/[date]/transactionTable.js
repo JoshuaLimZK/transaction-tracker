@@ -7,12 +7,10 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
-export async function TransactionTable() {
-    // Simulate fetching data from an API with wait
-
-    const data = await fetch("http://localhost:3000/api/fetchMongo").then(
-        (res) => res.json()
-    );
+export async function TransactionTable({ date }) {
+    const data = await fetch(
+        `http://localhost:3000/api/fetchMongo?date=${date}`
+    ).then((res) => res.json());
 
     return (
         <Table>
