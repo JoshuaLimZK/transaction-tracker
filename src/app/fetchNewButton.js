@@ -2,6 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { RefreshCw } from "lucide-react";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,8 +29,21 @@ export function FetchNewButton() {
     };
 
     return (
-        <Button variant="outline" size="sm" onClick={() => reload()}>
-            <RefreshCw id="refresh-icon" />
-        </Button>
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => reload()}
+                    >
+                        <RefreshCw id="refresh-icon" />
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                    <p>Reload Transcations</p>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
     );
 }
