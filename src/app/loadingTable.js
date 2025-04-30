@@ -23,27 +23,75 @@ export async function LoadingTable() {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
-                <TableCell>
-                    <Skeleton className="h-4 w-fill" />
-                </TableCell>
+                <TableRow>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                    <TableCell>
+                        <Skeleton className="h-4 w-fill" />
+                    </TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     );
