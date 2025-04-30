@@ -12,6 +12,31 @@ export async function TransactionTable({ date }) {
         `http://localhost:3000/api/fetchMongo?date=${date}`
     ).then((res) => res.json());
 
+    if (!data || data.length === 0) {
+        return (
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>Date</TableHead>
+                        <TableHead>Time</TableHead>
+                        <TableHead>Type</TableHead>
+                        <TableHead>Bank</TableHead>
+                        <TableHead>Value</TableHead>
+                        <TableHead>Category</TableHead>
+                        <TableHead>Merchant</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    <TableRow>
+                        <TableCell colSpan={7} style={{ textAlign: "center" }}>
+                            No transactions found for this month.
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        );
+    }
+
     return (
         <Table>
             <TableHeader>

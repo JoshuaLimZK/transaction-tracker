@@ -23,7 +23,7 @@ export async function LoadingTable() {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow>
+                <TableRow className="pointer-events-none">
                     <TableCell>
                         <Skeleton className="h-4 w-fill" />
                     </TableCell>
@@ -46,7 +46,7 @@ export async function LoadingTable() {
                         <Skeleton className="h-4 w-fill" />
                     </TableCell>
                 </TableRow>
-                <TableRow>
+                <TableRow className="pointer-events-none">
                     <TableCell>
                         <Skeleton className="h-4 w-fill" />
                     </TableCell>
@@ -69,7 +69,7 @@ export async function LoadingTable() {
                         <Skeleton className="h-4 w-fill" />
                     </TableCell>
                 </TableRow>
-                <TableRow>
+                <TableRow className="pointer-events-none">
                     <TableCell>
                         <Skeleton className="h-4 w-fill" />
                     </TableCell>
