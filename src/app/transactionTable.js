@@ -10,24 +10,9 @@ import {
 export async function TransactionTable() {
     // Simulate fetching data from an API with wait
 
-    const fetchData = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve([
-                    {
-                        date: "01/01/2025",
-                        time: "12:00 PM",
-                        type: "Income",
-                        bank: "Trust",
-                        value: "$1,200.00",
-                        category: "Salary",
-                        merchant: "ABC Corp",
-                    },
-                ]);
-            }, 2000);
-        });
-    };
-    const data = await fetchData();
+    const data = await fetch("http://localhost:3000/api/fetchMongo").then(
+        (res) => res.json()
+    );
 
     return (
         <Table>
@@ -45,13 +30,13 @@ export async function TransactionTable() {
             <TableBody>
                 {data.map((item, index) => (
                     <TableRow key={index}>
-                        <TableCell>{item.date}</TableCell>
-                        <TableCell>{item.time}</TableCell>
-                        <TableCell>{item.type}</TableCell>
-                        <TableCell>{item.bank}</TableCell>
-                        <TableCell>{item.value}</TableCell>
-                        <TableCell>{item.category}</TableCell>
-                        <TableCell>{item.merchant}</TableCell>
+                        <TableCell>{item.data.Date}</TableCell>
+                        <TableCell>{item.data.Time}</TableCell>
+                        <TableCell>{item.data.Type}</TableCell>
+                        <TableCell>{item.data.Bank}</TableCell>
+                        <TableCell>{item.data.Value}</TableCell>
+                        <TableCell>{item.data.Category}</TableCell>
+                        <TableCell>{item.data.Company}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>
