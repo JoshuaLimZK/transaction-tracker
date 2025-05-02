@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+Transaction Tracker
+</h1>
 
-## Getting Started
+> _Web App that collates bank transactions from Gmail and displays it in a readable table format._
 
-First, run the development server:
+## Set Up
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+I did not build this app with deployment in mind, but instead just as a proof of concept and practice for building react apps. To use the app in development mode only or deploying it requires your own api keys and environment variables.
+
+1. MongoDB URI
+2. OpenAI Key
+
+Add an .env file to the root folder
+
+```
+MONGODB_URI="mongodb://your_uri_here"
+OPENAI_API_KEY="your_key_here"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Google credentials.json file
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Create a new google cloud project and create a service account with access to the gmail api. Then create the credentials for the service account and place the credentials.json in the root folder. [For reference](https://developers.google.com/workspace/guides/create-credentials).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To test, run the project using the following command:
 
-## Learn More
+```bash
+$ npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Problem
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I've been trying to be more financially responsible lately. This involved attempting to be more mindful of my spending habits and transactions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+With the advent the cashless society, it has been increasingly difficult for me to guage how much I am spending, which would eventually lead to me overspending my budget.
 
-## Deploy on Vercel
+Initially, I attempted to use personal finance tracking apps like [Money Manager](https://www.realbyteapps.com/). These apps provided a good way to visualise spending habits and make me more aware of what I was spending my money on.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The issue with such apps is the requirement that transactions be manually entered. Some have bank integrations that allow for automatic transcation tracking, but they are either paid solutions or do not have support for Singaporean banks. Without an established habit, it is difficult to get myself to remember to key in every single transaction that I perform.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Therefore this app was created to circumvent this issue and perform automatic tracking of transactions.
+
+## Solution
+
+Initially I explored if my local bank had easily accessible API's that I could tap into to access transaction information. However it was clear that for security and privacy reasons this was not the case
+
+I noticed that every time a transaction was made, the bank would send me an email with all the transaction details. These emails could easily be accessed using the Gmail API
+
+However, the format of the emails could vary from bank to bank or even from transaction to transcation. Since the emails were provided in a html document format, it would be difficult to parse out the information for different test cases.
+
+<p align="center">
+<img src="readme_images/SampleEmail.png" width="500"></img>
+</p>
+<p align="center">
+<i>Sample email</i>
+</p>
+
+I decided use OpenAI's ChatGPT API to parse the text from the image. This made the solution more universal, working of several email formats from different banks.
+
+To prevent constant calls to the paid ChatGPT API, I decided to save already processed text to a MongoDB database.
+
+The workflow is as follows:
+
+<p align="center">
+<img src="readme_images/Flowchart.jpg" width="500"></img>
+</p>
+<p align="center">
+<i>Flowchart</i>
+</p>
+
+## Interface
+
+<p align="center">
+<img src="readme_images/Screenshot.png" width="500"></img>
+</p>
+<p align="center">
+<i>Screenshot</i>
+</p>
