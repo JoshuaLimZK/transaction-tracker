@@ -117,7 +117,9 @@ async function getMessages(auth) {
                 const messageBody = dom.window.document
                     .querySelector("body")
                     .textContent.replace(/\s+/g, " ");
-                const openaiClient = new OpenAI();
+                const openaiClient = new OpenAI({
+                    apiKey: process.env.OPENAI_API_KEY,
+                });
                 const response = await openaiClient.responses.create({
                     model: "gpt-4o-mini",
                     input: [
